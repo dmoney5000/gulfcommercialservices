@@ -114,7 +114,7 @@
     .hero-bg::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(105deg, rgba(26,26,24,0.72) 0%, rgba(26,26,24,0.3) 60%, transparent 100%);
+      background: linear-gradient(105deg, rgba(26,26,24,0.4) 0%, rgba(26,26,24,0.15) 60%, transparent 100%);
     }
 
     .hero-content {
@@ -490,12 +490,13 @@
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#about">About Us</a></li>
-    <li><a href="#quote">Contact</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="#quote" class="btn-quote">Get a Quote</a>
+  <a href="contact.html" class="btn-quote">Get a Quote</a>
   <div class="hamburger" onclick="openMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -504,11 +505,12 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="closeMenu()">✕</button>
-  <a href="#services" onclick="closeMenu()">Services</a>
-  <a href="#projects" onclick="closeMenu()">Projects</a>
-  <a href="#about" onclick="closeMenu()">About Us</a>
-  <a href="#quote" onclick="closeMenu()">Contact</a>
-  <a href="#quote" onclick="closeMenu()" style="font-size:1rem; letter-spacing:0.1em; text-transform:uppercase; margin-top:1rem; border:1px solid rgba(255,255,255,0.3); padding:0.8rem 2rem;">Get a Quote</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="projects.html" onclick="closeMenu()">Projects</a>
+  <a href="blog.html" onclick="closeMenu()">Blog</a>
+  <a href="about.html" onclick="closeMenu()">About Us</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="contact.html" onclick="closeMenu()" style="font-size:1rem; letter-spacing:0.1em; text-transform:uppercase; margin-top:1rem; border:1px solid rgba(255,255,255,0.3); padding:0.8rem 2rem;">Get a Quote</a>
 </div>
 
 <!-- HERO -->
@@ -525,7 +527,7 @@
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-img">
-    <img src="https://static.wixstatic.com/media/11062b_6fec5660bf9747ee9c25ec418f2bd267~mv2.jpg/v1/crop/x_581,y_0,w_1827,h_1858/fill/w_800,h_900,al_c,q_85,enc_avif,quality_auto/Luxurious%20Home.jpg" alt="Luxurious Home Interior" loading="lazy"/>
+    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80" alt="Beautiful Renovated Home Interior" loading="lazy"/>
   </div>
   <div class="about-text">
     <p class="section-label">About Our Company</p>
@@ -658,6 +660,73 @@
 </section>
 
 
+<!-- BLOG -->
+<section id="blog" style="background:#fff; padding: 6rem 4rem;">
+  <div style="text-align:center; max-width:600px; margin: 0 auto 3rem;">
+    <p class="section-label">Latest News</p>
+    <h2 class="section-title">Tips, Trends & Remodeling Insights</h2>
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:2rem;">
+
+    <div style="border:1px solid #ede8de; overflow:hidden; transition: box-shadow 0.3s, transform 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="background:#ede8de; height:180px; display:flex; align-items:center; justify-content:center;">
+        <svg viewBox="0 0 80 60" fill="none" stroke="#C1AB71" stroke-width="2" width="80" height="60">
+          <rect x="5" y="5" width="30" height="50" rx="1"/>
+          <rect x="45" y="15" width="30" height="40" rx="1"/>
+          <line x1="5" y1="20" x2="35" y2="20"/>
+          <line x1="5" y1="30" x2="35" y2="30"/>
+          <line x1="45" y1="28" x2="75" y2="28"/>
+        </svg>
+      </div>
+      <div style="padding:1.5rem;">
+        <p style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:#C1AB71; margin-bottom:0.5rem;">Flooring</p>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:#1a1a18; margin-bottom:0.6rem;">Top Flooring Trends for 2025</h3>
+        <p style="font-size:0.85rem; color:#7a7a72; line-height:1.7; margin-bottom:1rem;">Discover the most popular flooring styles homeowners are choosing this year, from wide-plank hardwood to luxury vinyl.</p>
+        <a href="#" style="font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:#C1AB71; text-decoration:none; border-bottom:1px solid #C1AB71;">Read More →</a>
+      </div>
+    </div>
+
+    <div style="border:1px solid #ede8de; overflow:hidden; transition: box-shadow 0.3s, transform 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="background:#ede8de; height:180px; display:flex; align-items:center; justify-content:center;">
+        <svg viewBox="0 0 80 60" fill="none" stroke="#C1AB71" stroke-width="2" width="80" height="60">
+          <rect x="10" y="10" width="60" height="40" rx="1"/>
+          <line x1="10" y1="28" x2="70" y2="28"/>
+          <line x1="40" y1="10" x2="40" y2="50"/>
+          <circle cx="25" cy="19" r="3"/>
+          <circle cx="55" cy="19" r="3"/>
+          <circle cx="25" cy="39" r="3"/>
+          <circle cx="55" cy="39" r="3"/>
+        </svg>
+      </div>
+      <div style="padding:1.5rem;">
+        <p style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:#C1AB71; margin-bottom:0.5rem;">Drywall</p>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:#1a1a18; margin-bottom:0.6rem;">How to Spot Drywall Damage Early</h3>
+        <p style="font-size:0.85rem; color:#7a7a72; line-height:1.7; margin-bottom:1rem;">Learn the warning signs of drywall damage and why fixing it early can save you thousands in costly repairs down the road.</p>
+        <a href="#" style="font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:#C1AB71; text-decoration:none; border-bottom:1px solid #C1AB71;">Read More →</a>
+      </div>
+    </div>
+
+    <div style="border:1px solid #ede8de; overflow:hidden; transition: box-shadow 0.3s, transform 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="background:#ede8de; height:180px; display:flex; align-items:center; justify-content:center;">
+        <svg viewBox="0 0 80 60" fill="none" stroke="#C1AB71" stroke-width="2" width="80" height="60">
+          <rect x="20" y="8" width="40" height="18" rx="2"/>
+          <line x1="40" y1="26" x2="40" y2="38"/>
+          <rect x="28" y="38" width="24" height="10" rx="1"/>
+          <line x1="20" y1="26" x2="20" y2="34"/>
+          <line x1="60" y1="26" x2="60" y2="30"/>
+        </svg>
+      </div>
+      <div style="padding:1.5rem;">
+        <p style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:#C1AB71; margin-bottom:0.5rem;">Painting</p>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:#1a1a18; margin-bottom:0.6rem;">Choosing the Right Paint Finish</h3>
+        <p style="font-size:0.85rem; color:#7a7a72; line-height:1.7; margin-bottom:1rem;">Matte, eggshell, satin, or gloss? We break down which paint finish works best for each room in your home.</p>
+        <a href="#" style="font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:#C1AB71; text-decoration:none; border-bottom:1px solid #C1AB71;">Read More →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- QUOTE SECTION -->
 <section id="quote" style="background: var(--light-warm); text-align:center;">
   <p class="section-label">Inquiries</p>
@@ -683,10 +752,11 @@
   <div>
     <h4>Navigation</h4>
     <ul>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#quote">Get a Quote</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Get a Quote</a></li>
     </ul>
   </div>
   <div>
