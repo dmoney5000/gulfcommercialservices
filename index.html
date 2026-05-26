@@ -78,8 +78,8 @@
   // Animated number counter
   function animateCounter(el) {
     const target = parseInt(el.dataset.target);
-    const suffix = target >= 1000 ? ',500+' : '+';
-    const displayTarget = target >= 1000 ? '1,500' : target;
+    const suffix = '+';
+    const displayTarget = target;
     const duration = 1800;
     const start = performance.now();
     function update(now) {
@@ -87,13 +87,9 @@
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(eased * target);
-      if (target >= 1000) {
-        el.textContent = current >= 1000 ? '1,' + String(current - 1000).padStart(3,'0') + '+' : current + '+';
-      } else {
-        el.textContent = current + '+';
-      }
+      el.textContent = current + '+';
       if (progress < 1) requestAnimationFrame(update);
-      else el.textContent = target >= 1000 ? '1,500+' : target + '+';
+      else el.textContent = target + '+';
     }
     requestAnimationFrame(update);
   }
@@ -237,7 +233,7 @@
       font-size: 0.72rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: #C1AB71;
       margin-bottom: 1.2rem;
       font-weight: 500;
     }
@@ -624,7 +620,7 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <span class="hero-tag">Experienced & Reliable Remodelers since 1968</span>
+    <span class="hero-tag">Experienced &amp; Reliable Remodelers since 2000</span>
     <h1>St. Petersburg FL Home Remodeling &amp; Renovation Services</h1>
     <p>Professional tile, flooring, carpentry, painting &amp; drywall services for homeowners across St. Petersburg, Tampa Bay, and the Gulf Coast of Florida.</p>
     <a href="#quote" class="btn-outline">Get a Quote</a>
@@ -648,15 +644,15 @@
 <!-- STATS -->
 <div class="stats">
   <div class="stat-item">
-    <div class="stat-num" data-target="500">0+</div>
+    <div class="stat-num" data-target="200">0+</div>
     <div class="stat-label">Happy Clients</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num" data-target="15">0+</div>
-    <div class="stat-label">Running Projects</div>
+    <div class="stat-num" data-target="5">0+</div>
+    <div class="stat-label">Current Projects</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num" data-target="1500">0+</div>
+    <div class="stat-num" data-target="500">0+</div>
     <div class="stat-label">Projects Completed</div>
   </div>
 </div>
