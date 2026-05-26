@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Gulf Commercial Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="shared.css"/>
+  <style>
+    .blog-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; margin-top: 3rem; }
+    .blog-main { display: flex; flex-direction: column; gap: 2.5rem; }
+    .blog-card { border: 1px solid var(--light-warm); overflow: hidden; background: #fff; transition: box-shadow 0.3s, transform 0.3s; }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .blog-card-img { height: 220px; background: var(--light-warm); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .blog-card:hover .blog-card-img img { transform: scale(1.05); }
+    .blog-card-body { padding: 1.8rem; }
+    .blog-meta { display: flex; gap: 1rem; align-items: center; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .blog-cat { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #fff; background: #C1AB71; padding: 0.25rem 0.7rem; }
+    .blog-date { font-size: 0.75rem; color: var(--muted); }
+    .blog-card-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--dark); margin-bottom: 0.7rem; font-weight: 600; line-height: 1.3; }
+    .blog-card-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
+    .read-more { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #C1AB71; text-decoration: none; border-bottom: 1px solid #C1AB71; padding-bottom: 2px; transition: opacity 0.2s; }
+    .read-more:hover { opacity: 0.7; }
+    /* Featured post */
+    .blog-featured { border: 1px solid var(--light-warm); overflow: hidden; background: #fff; margin-bottom: 2.5rem; }
+    .blog-featured-img { height: 320px; overflow: hidden; }
+    .blog-featured-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .blog-featured:hover .blog-featured-img img { transform: scale(1.03); }
+    .blog-featured-body { padding: 2rem; }
+    .featured-tag { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: #C1AB71; margin-bottom: 0.5rem; display: block; }
+    .blog-featured-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--dark); margin-bottom: 0.8rem; font-weight: 400; line-height: 1.2; }
+    /* Sidebar */
+    .sidebar { display: flex; flex-direction: column; gap: 2rem; }
+    .sidebar-widget { background: #fff; border: 1px solid var(--light-warm); padding: 1.8rem; }
+    .sidebar-widget h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--dark); margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--light-warm); }
+    .recent-post { display: flex; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--light-warm); }
+    .recent-post:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .recent-thumb { width: 60px; height: 60px; background: var(--light-warm); flex-shrink: 0; overflow: hidden; }
+    .recent-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .recent-post h4 { font-size: 0.85rem; color: var(--dark); line-height: 1.4; margin-bottom: 0.2rem; }
+    .recent-post span { font-size: 0.72rem; color: var(--muted); }
+    .category-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .category-list li { display: flex; justify-content: space-between; align-items: center; }
+    .category-list a { font-size: 0.85rem; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .category-list a:hover { color: #C1AB71; }
+    .category-list span { font-size: 0.75rem; color: var(--muted); background: var(--light-warm); padding: 0.1rem 0.5rem; }
+    .cta-widget { background: var(--navy); border: none; padding: 2rem; text-align: center; }
+    .cta-widget h3 { color: #fff; border-bottom: 1px solid rgba(193,171,113,0.3); }
+    .cta-widget p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 1rem 0 1.5rem; }
+    .pagination { display: flex; gap: 0.5rem; margin-top: 2rem; }
+    .page-num { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid #d0c9bc; font-size: 0.82rem; cursor: pointer; transition: all 0.2s; text-decoration: none; color: var(--text); }
+    .page-num:hover, .page-num.active { background: #C1AB71; border-color: #C1AB71; color: #1a1a18; }
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="gcs-logo-link">
+    <div class="gcs-logo"><span class="gcs-name">Gulf<br/>Commercial<br/>Services</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="btn-quote">Get a Quote</a>
+  <div class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="projects.html" onclick="closeMenu()">Projects</a>
+  <a href="blog.html" onclick="closeMenu()">Blog</a>
+  <a href="about.html" onclick="closeMenu()">About Us</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<div class="page-hero">
+  <p class="section-label">Tips & Insights</p>
+  <h1>The Gulf Commercial Blog</h1>
+  <p>Remodeling tips, design trends, and expert advice for Gulf Coast homeowners.</p>
+</div>
+
+<section style="background:var(--cream);">
+  <div class="blog-grid">
+
+    <!-- MAIN CONTENT -->
+    <div>
+      <!-- Featured Post -->
+      <div class="blog-featured">
+        <div class="blog-featured-img">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80" alt="Kitchen Remodel"/>
+        </div>
+        <div class="blog-featured-body">
+          <span class="featured-tag">✦ Featured Post</span>
+          <div class="blog-meta">
+            <span class="blog-cat">Flooring</span>
+            <span class="blog-date">January 15, 2025</span>
+          </div>
+          <h2>Top Flooring Trends for Gulf Coast Homes in 2025</h2>
+          <p>Discover the most popular flooring styles homeowners across the Gulf Coast are choosing this year — from wide-plank hardwood to luxury vinyl plank that stands up to Florida's humidity and coastal lifestyle.</p>
+          <a href="#" class="read-more">Read Full Article →</a>
+        </div>
+      </div>
+
+      <!-- Post Grid -->
+      <div class="blog-main">
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Drywall"/>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat">Drywall</span>
+              <span class="blog-date">January 8, 2025</span>
+            </div>
+            <h2>How to Spot Drywall Damage Before It Becomes a Big Problem</h2>
+            <p>Learn the warning signs of drywall damage and why fixing it early can save you thousands in costly repairs down the road. Cracks, bubbling, and soft spots are all red flags.</p>
+            <a href="#" class="read-more">Read Full Article →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80" alt="Painting"/>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat">Painting</span>
+              <span class="blog-date">December 20, 2024</span>
+            </div>
+            <h2>Choosing the Right Paint Finish for Every Room in Your Home</h2>
+            <p>Matte, eggshell, satin, semi-gloss, or high-gloss? We break down which paint finish works best for each room — and which ones hold up best in Florida's humid climate.</p>
+            <a href="#" class="read-more">Read Full Article →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Tile Kitchen"/>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat">Tile & Stone</span>
+              <span class="blog-date">December 10, 2024</span>
+            </div>
+            <h2>Tile vs. Stone: Which Is Right for Your Kitchen or Bathroom?</h2>
+            <p>Both tile and natural stone have their pros and cons. We compare durability, maintenance, cost, and aesthetics to help you make the best choice for your Gulf Coast home.</p>
+            <a href="#" class="read-more">Read Full Article →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Carpentry"/>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat">Carpentry</span>
+              <span class="blog-date">November 28, 2024</span>
+            </div>
+            <h2>Custom Built-Ins vs. Store-Bought: Is It Worth Hiring a Carpenter?</h2>
+            <p>Thinking about adding built-in shelving, a custom closet, or crown molding? Here's why custom carpentry adds long-term value and a polished look you can't get off the shelf.</p>
+            <a href="#" class="read-more">Read Full Article →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <a href="#" class="page-num active">1</a>
+        <a href="#" class="page-num">2</a>
+        <a href="#" class="page-num">3</a>
+        <a href="#" class="page-num">→</a>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <!-- Search -->
+      <div class="sidebar-widget">
+        <h3>Search</h3>
+        <div style="display:flex; gap:0.5rem;">
+          <input type="text" placeholder="Search articles..." style="padding:0.7rem 1rem; border:1px solid #d0c9bc; font-family:inherit; font-size:0.85rem; flex:1; outline:none;"/>
+          <button class="btn-quote" style="padding:0.7rem 1rem;">→</button>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="sidebar-widget">
+        <h3>Categories</h3>
+        <ul class="category-list">
+          <li><a href="#">Tile & Stone</a><span>4</span></li>
+          <li><a href="#">Flooring</a><span>6</span></li>
+          <li><a href="#">Carpentry</a><span>3</span></li>
+          <li><a href="#">Painting</a><span>5</span></li>
+          <li><a href="#">Drywall</a><span>2</span></li>
+          <li><a href="#">Handyman Tips</a><span>7</span></li>
+        </ul>
+      </div>
+
+      <!-- Recent Posts -->
+      <div class="sidebar-widget">
+        <h3>Recent Posts</h3>
+        <div class="recent-post">
+          <div class="recent-thumb"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=200&q=80" alt=""/></div>
+          <div><h4>Top Flooring Trends for 2025</h4><span>January 15, 2025</span></div>
+        </div>
+        <div class="recent-post">
+          <div class="recent-thumb"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=200&q=80" alt=""/></div>
+          <div><h4>How to Spot Drywall Damage Early</h4><span>January 8, 2025</span></div>
+        </div>
+        <div class="recent-post">
+          <div class="recent-thumb"><img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=200&q=80" alt=""/></div>
+          <div><h4>Choosing the Right Paint Finish</h4><span>December 20, 2024</span></div>
+        </div>
+      </div>
+
+      <!-- CTA Widget -->
+      <div class="sidebar-widget cta-widget">
+        <h3>Ready to Remodel?</h3>
+        <p>Get a free, no-obligation quote for your next project. We serve St. Petersburg and the entire Gulf Coast.</p>
+        <a href="contact.html" class="btn-quote" style="width:100%; text-align:center; display:block;">Get a Free Quote</a>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <a href="index.html" class="gcs-logo-link"><img src="logo.png" alt="Gulf Commercial Services" style="height:80px; width:auto; background:#122341;"/></a>
+    <p>Professional commercial and home remodeling services delivering safe, efficient, and beautiful transformations.</p>
+  </div>
+  <div><h4>Navigation</h4><ul><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Get a Quote</a></li></ul></div>
+  <div><h4>Socials</h4><ul><li><a href="#">Facebook</a></li><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+  <div><h4>Contact</h4><address>727-314-1255<br/>info@gulfcommercialservices.com<br/>gulfcommercialservices.com</address></div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 by Gulf Commercial Services. All rights reserved.</span>
+  <div style="display:flex;gap:1.5rem;"><a href="#">Privacy Policy</a><a href="#">Accessibility</a></div>
+</div>
+<script>
+  function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+</body>
+</html>
