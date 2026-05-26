@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/gulfkrak/public_html/
+    - export DEPLOYPATH=/home/gulfkrak/gfc_html/
     - /bin/cp -r index.html $DEPLOYPATH
     - /bin/cp -r about.html $DEPLOYPATH
     - /bin/cp -r contact.html $DEPLOYPATH
