@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Gulf Commercial Services offers professional tile, flooring, carpentry, painting, drywall & handyman services in St. Petersburg, FL. Free quotes. Call 727-314-1255."/>
+  <meta name="description" content="Gulf Commercial Services specializes in tile, flooring, and custom cabinetry & carpentry in St. Petersburg & Tampa Bay, FL — plus painting, drywall & handyman services. Free quotes. Call 727-314-1255."/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://www.gulfcommercialservices.com/"/>
   <!-- Open Graph -->
@@ -74,36 +74,7 @@
   "description": "Gulf Commercial Services provides professional remodeling services including tile & stone, flooring, carpentry, painting, drywall, and handyman services across St. Petersburg, Tampa Bay, and the Gulf Coast of Florida.",
   "sameAs": []
 }
-  
-  // Animated number counter
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.target);
-    const suffix = '+';
-    const displayTarget = target;
-    const duration = 1800;
-    const start = performance.now();
-    function update(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(eased * target);
-      el.textContent = current + '+';
-      if (progress < 1) requestAnimationFrame(update);
-      else el.textContent = target + '+';
-    }
-    requestAnimationFrame(update);
-  }
-
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        animateCounter(e.target);
-        counterObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObserver.observe(el));
-</script>
+  </script>
   <title>Home Remodeling St. Petersburg FL | Gulf Commercial Services</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -212,7 +183,7 @@
 
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('hero.png') center/cover no-repeat;
+      background: url('hero-tile-bathroom.jpg') center/cover no-repeat;
     }
     .hero-bg::after {
       content: '';
@@ -233,7 +204,7 @@
       font-size: 0.72rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #C1AB71;
+      color: var(--gold);
       margin-bottom: 1.2rem;
       font-weight: 500;
     }
@@ -336,29 +307,29 @@
 
     /* STATS */
     .stats {
-      background: #0a0a0a;
+      background: var(--dark);
+      padding: 4rem;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+      gap: 2rem;
     }
-    .stat-item {
-      padding: 4.5rem 4rem;
-      border-right: 1px solid rgba(255,255,255,0.07);
-    }
+    .stat-item { padding: 2rem 1rem; border-right: 1px solid rgba(255,255,255,0.1); }
     .stat-item:last-child { border-right: none; }
     .stat-num {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(2.8rem, 4.5vw, 4.8rem);
-      font-weight: 700;
-      color: #fff;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.5rem;
+      font-weight: 300;
+      color: var(--gold);
       line-height: 1;
       margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
     }
     .stat-label {
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.45);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
       font-weight: 400;
-      letter-spacing: 0.01em;
     }
 
     /* PROJECTS */
@@ -454,6 +425,23 @@
 
     .services-footer { margin-top: 2.5rem; text-align: center; }
 
+    /* SERVICE PRIORITY + AREAS (added) */
+    .services-subhead { text-align:center; max-width:640px; margin: 3.5rem auto 0; }
+    a.service-card { text-decoration: none; color: inherit; cursor: pointer; display: block; }
+    .service-card .service-link { display:inline-block; margin-top:1rem; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--warm); font-weight:600; }
+    .service-card.featured { border-top: 3px solid var(--gold); }
+    .services-grid.secondary { margin-top: 1.5rem; }
+    .services-grid.secondary .service-card { padding: 1.75rem; background: var(--cream); }
+    .services-grid.secondary .service-card h3 { font-size: 1.2rem; }
+    .services-grid.secondary .service-icon { width: 52px; height: 52px; }
+    .areas-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+    a.area-card { display:block; text-decoration:none; color:inherit; padding:2.25rem; border:1px solid var(--light-warm); background:#fff; transition: border-color .3s, transform .3s, box-shadow .3s; }
+    a.area-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow:0 12px 40px rgba(139,111,71,0.1); }
+    .area-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:var(--dark); margin-bottom:0.4rem; }
+    .area-card p { font-size:0.85rem; color:var(--muted); line-height:1.6; }
+    .area-card .service-link { display:inline-block; margin-top:0.9rem; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--warm); font-weight:600; }
+    @media (max-width:768px){ .services-grid.secondary, .areas-grid { grid-template-columns: 1fr; } }
+
     /* CLIENTS */
     .clients { background: var(--dark); padding: 4rem; text-align: center; }
     .clients h2 {
@@ -486,7 +474,7 @@
       color: rgba(255,255,255,0.6);
       padding: 4rem;
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
       gap: 3rem;
     }
     .footer-brand .logo { color: var(--cream); font-size: 1.6rem; }
@@ -587,10 +575,8 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#" class="gcs-logo-link">
-    <div class="gcs-logo">
-      <span class="gcs-name">Gulf<br/>Commercial<br/>Services</span>
-    </div>
+  <a href="index.html" class="gcs-logo-link">
+    <div class="gcs-logo"><span class="gcs-name">Gulf<br/>Commercial<br/>Services</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="services.html">Services</a></li>
@@ -599,20 +585,20 @@
     <li><a href="about.html">About Us</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="contact.html" class="btn-quote">Get a Quote</a>
-  <div class="hamburger" onclick="openMenu()">
-    <span></span><span></span><span></span>
+  <div style="display:flex; align-items:center; gap:1.5rem;">
+    <a href="tel:+17273141255" style="color:#fff; text-decoration:none; font-size:0.92rem; font-weight:600; letter-spacing:0.03em; white-space:nowrap;">727-314-1255</a>
+    <a href="contact.html" class="btn-quote">Get a Quote</a>
   </div>
+  <div class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></div>
 </nav>
-
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" onclick="closeMenu()">✕</button>
+  <button class="mobile-close" onclick="closeMenu()">&#10005;</button>
   <a href="services.html" onclick="closeMenu()">Services</a>
   <a href="projects.html" onclick="closeMenu()">Projects</a>
   <a href="blog.html" onclick="closeMenu()">Blog</a>
   <a href="about.html" onclick="closeMenu()">About Us</a>
   <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="tel:+17273141255" onclick="closeMenu()">Call 727-314-1255</a>
   <a href="contact.html" onclick="closeMenu()" style="font-size:1rem; letter-spacing:0.1em; text-transform:uppercase; margin-top:1rem; border:1px solid rgba(255,255,255,0.3); padding:0.8rem 2rem;">Get a Quote</a>
 </div>
 
@@ -620,9 +606,9 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <span class="hero-tag">Experienced &amp; Reliable Remodelers since 2000</span>
-    <h1>St. Petersburg FL Home Remodeling &amp; Renovation Services</h1>
-    <p>Professional tile, flooring, carpentry, painting &amp; drywall services for homeowners across St. Petersburg, Tampa Bay, and the Gulf Coast of Florida.</p>
+    <span class="hero-tag">Experienced & Reliable Remodelers since 1968</span>
+    <h1>St. Petersburg FL Tile &amp; Stone Installation Services</h1>
+    <p>Specialists in tile, flooring, and custom cabinetry &amp; carpentry for homeowners across St. Petersburg, Tampa Bay, and the Gulf Coast of Florida — plus painting, drywall, and handyman services.</p>
     <a href="#quote" class="btn-outline">Get a Quote</a>
   </div>
 </section>
@@ -640,22 +626,6 @@
   </div>
 </section>
 
-
-<!-- STATS -->
-<div class="stats">
-  <div class="stat-item">
-    <div class="stat-num" data-target="200">0+</div>
-    <div class="stat-label">Happy Clients</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num" data-target="5">0+</div>
-    <div class="stat-label">Current Projects</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num" data-target="500">0+</div>
-    <div class="stat-label">Projects Completed</div>
-  </div>
-</div>
 
 <!-- PROJECTS -->
 <section class="projects" id="projects">
@@ -685,8 +655,9 @@
     <p class="section-label">Our Services</p>
     <h2 class="section-title">We Offer a Range of Services Tailored to Your Needs</h2>
   </div>
+  <p class="section-label services-subhead">Our Specialties</p>
   <div class="services-grid">
-    <div class="service-card">
+    <a href="service-tile.html" class="service-card featured">
       <div class="service-icon">
         <svg viewBox="0 0 44 44" fill="none" stroke="#1a1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
           <!-- Tile grid pattern -->
@@ -696,10 +667,11 @@
           <rect x="24" y="24" width="16" height="16" rx="0"/>
         </svg>
       </div>
-      <h3>Tile & Stone</h3>
-      <p>Professional tile and stone installation for floors, walls, bathrooms, kitchens, and more. Quality craftsmanship that lasts.</p>
-    </div>
-    <div class="service-card">
+      <h3>Tile &amp; Stone</h3>
+      <p>Expert tile and stone installation for floors, walls, bathrooms, and kitchens — ceramic, porcelain, marble, and travertine that lasts in Florida's climate.</p>
+      <span class="service-link">Learn More →</span>
+    </a>
+    <a href="service-flooring.html" class="service-card featured">
       <div class="service-icon">
         <svg viewBox="0 0 44 44" fill="none" stroke="#1a1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
           <!-- Hardwood plank pattern like uploaded image -->
@@ -712,9 +684,10 @@
         </svg>
       </div>
       <h3>Flooring</h3>
-      <p>Expert installation of hardwood, vinyl, laminate, and all flooring types. Beautiful, durable results for every room.</p>
-    </div>
-    <div class="service-card">
+      <p>Hardwood, luxury vinyl plank, laminate, and tile flooring installed for beautiful, durable results in every room of your home.</p>
+      <span class="service-link">Learn More →</span>
+    </a>
+    <a href="service-carpentry.html" class="service-card featured">
       <div class="service-icon">
         <svg viewBox="0 0 44 44" fill="none" stroke="#1a1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
           <!-- Saw / carpentry tool -->
@@ -725,33 +698,37 @@
           <line x1="22" y1="26" x2="20" y2="36"/>
         </svg>
       </div>
-      <h3>Carpentry</h3>
-      <p>Custom carpentry, cabinet installation, trim work, and closet solutions tailored to your space and style.</p>
-    </div>
-    <div class="service-card">
+      <h3>Cabinets &amp; Carpentry</h3>
+      <p>Custom cabinetry, built-ins, trim work, and closet systems — designed and installed to fit your space and built to last.</p>
+      <span class="service-link">Learn More →</span>
+    </a>
+  </div>
+
+  <p class="section-label services-subhead">Additional Services</p>
+  <div class="services-grid secondary">
+    <a href="service-painting.html" class="service-card">
       <div class="service-icon">
         <svg viewBox="0 0 44 44" fill="none" stroke="#1a1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
           <!-- Paint roller -->
           <rect x="10" y="6" width="24" height="12" rx="2"/>
           <line x1="22" y1="18" x2="22" y2="26"/>
           <rect x="16" y="26" width="12" height="6" rx="1"/>
-          <!-- Paint drips -->
           <line x1="14" y1="18" x2="14" y2="24"/>
           <line x1="30" y1="18" x2="30" y2="22"/>
           <line x1="22" y1="18" x2="22" y2="26"/>
         </svg>
       </div>
       <h3>Painting</h3>
-      <p>Interior and exterior painting services with premium finishes. We prepare, prime, and paint for a flawless look.</p>
-    </div>
-    <div class="service-card">
+      <p>Interior and exterior painting with premium finishes — prepped, primed, and painted for a flawless look.</p>
+      <span class="service-link">Learn More →</span>
+    </a>
+    <a href="service-drywall.html" class="service-card">
       <div class="service-icon">
         <svg viewBox="0 0 44 44" fill="none" stroke="#1a1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
           <!-- Drywall / wall panel -->
           <rect x="4" y="8" width="36" height="28" rx="1"/>
           <line x1="4" y1="22" x2="40" y2="22"/>
           <line x1="22" y1="8" x2="22" y2="36"/>
-          <!-- Screws -->
           <circle cx="13" cy="15" r="2"/>
           <circle cx="31" cy="15" r="2"/>
           <circle cx="13" cy="29" r="2"/>
@@ -759,9 +736,10 @@
         </svg>
       </div>
       <h3>Drywall</h3>
-      <p>Complete drywall installation, repair, and finishing including stucco and texture work done right the first time.</p>
-    </div>
-    <div class="service-card">
+      <p>Drywall installation, repair, and finishing — including stucco and texture work done right the first time.</p>
+      <span class="service-link">Learn More →</span>
+    </a>
+    <a href="service-handyman.html" class="service-card">
       <div class="service-icon">
         <svg viewBox="0 0 44 44" fill="none" stroke="#1a1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
           <!-- Wrench -->
@@ -771,10 +749,37 @@
       </div>
       <h3>Handyman Services</h3>
       <p>No job too small. From minor repairs to general maintenance, our team handles it all quickly and professionally.</p>
-    </div>
+      <span class="service-link">Learn More →</span>
+    </a>
   </div>
   <div class="services-footer">
     <a href="#quote" class="btn-quote" style="display:inline-block; text-decoration:none;">Get a Quote</a>
+  </div>
+</section>
+
+<!-- AREAS WE SERVE -->
+<section style="background:var(--light-warm);" id="areas">
+  <div style="text-align:center; max-width:640px; margin:0 auto;">
+    <p class="section-label">Areas We Serve</p>
+    <h2 class="section-title">Serving St. Petersburg, Clearwater &amp; the Gulf Beaches</h2>
+    <p class="section-sub" style="margin-top:1rem;">Based in St. Petersburg and serving homeowners across Pinellas County and the Gulf Coast of Florida.</p>
+  </div>
+  <div class="areas-grid">
+    <a href="home-remodeling-st-petersburg-fl.html" class="area-card">
+      <h3>St. Petersburg, FL</h3>
+      <p>Tile, flooring, and custom cabinetry for homes in the Old Northeast, Historic Kenwood, Snell Isle, and downtown.</p>
+      <span class="service-link">Explore St. Petersburg →</span>
+    </a>
+    <a href="home-remodeling-clearwater-fl.html" class="area-card">
+      <h3>Clearwater, FL</h3>
+      <p>Flooring, tile, and remodeling for Clearwater, Clearwater Beach, and the surrounding Pinellas coast.</p>
+      <span class="service-link">Explore Clearwater →</span>
+    </a>
+    <a href="home-remodeling-gulf-beaches-fl.html" class="area-card">
+      <h3>Gulf Beaches, FL</h3>
+      <p>Coastal tile, flooring, and cabinetry for St. Pete Beach, Treasure Island, Madeira Beach, and the barrier islands.</p>
+      <span class="service-link">Explore Gulf Beaches →</span>
+    </a>
   </div>
 </section>
 
@@ -863,9 +868,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
-    <a href="#" class="gcs-logo-link">
-      <img loading="lazy" src="logo.png" alt="Gulf Commercial Services" style="height:80px; width:auto; background:#122341;"/>
-    </a>
+    <a href="index.html" class="gcs-logo-link"><img loading="lazy" src="logo.png" alt="Gulf Commercial Services" style="height:80px; width:auto; background:#122341;"/></a>
     <p>Professional commercial and home remodeling services delivering safe, efficient, and beautiful transformations since 1968.</p>
   </div>
   <div>
@@ -879,6 +882,14 @@
     </ul>
   </div>
   <div>
+    <h4>Service Areas</h4>
+    <ul>
+      <li><a href="home-remodeling-st-petersburg-fl.html">St. Petersburg, FL</a></li>
+      <li><a href="home-remodeling-clearwater-fl.html">Clearwater, FL</a></li>
+      <li><a href="home-remodeling-gulf-beaches-fl.html">Gulf Beaches, FL</a></li>
+    </ul>
+  </div>
+  <div>
     <h4>Socials</h4>
     <ul>
       <li><a href="#">Facebook</a></li>
@@ -887,20 +898,17 @@
     </ul>
   </div>
   <div>
-    <h4>Head Office</h4>
-    <address>
-      727-314-1255<br/>
+    <h4>Contact</h4>
+    <address style="font-style:normal; line-height:1.8;">
+      <a href="tel:+17273141255" style="color:inherit; text-decoration:none;">727-314-1255</a><br/>
       info@gulfcommercialservices.com<br/>
       gulfcommercialservices.com
     </address>
   </div>
 </footer>
 <div class="footer-bottom">
-  <span>© 2025 by Gulf Commercial Services. All rights reserved.</span>
-  <div style="display:flex; gap:1.5rem;">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Accessibility</a>
-  </div>
+  <span>&copy; 2025 by Gulf Commercial Services. All rights reserved.</span>
+  <div style="display:flex; gap:1.5rem;"><a href="#">Privacy Policy</a><a href="#">Accessibility</a></div>
 </div>
 
 <script>
