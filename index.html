@@ -234,16 +234,18 @@
 
     .btn-outline {
       display: inline-block;
-      border: 1.5px solid rgba(255,255,255,0.6);
-      color: #fff;
-      padding: 0.75rem 2rem;
+      background: #C1AB71;
+      color: #1a1a18;
+      border: none;
+      padding: 0.85rem 2.2rem;
       font-size: 0.78rem;
+      font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: all 0.3s;
+      transition: opacity 0.3s, transform 0.3s;
     }
-    .btn-outline:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+    .btn-outline:hover { opacity: 0.88; transform: translateY(-1px); }
 
     /* SECTION BASE */
     section { padding: 6rem 4rem; }
