@@ -176,14 +176,15 @@
     .hero {
       min-height: 100vh;
       position: relative;
-      display: flex;
-      align-items: center;
       overflow: hidden;
     }
 
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('hero-tile-bathroom.jpg') center/cover no-repeat;
+      background-color: #1a1a18;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
     .hero-bg::after {
       content: '';
@@ -191,6 +192,51 @@
       background:
         linear-gradient(95deg, rgba(18,16,14,0.55) 0%, rgba(18,16,14,0.3) 32%, rgba(18,16,14,0.08) 58%, transparent 82%),
         linear-gradient(180deg, transparent 68%, rgba(18,16,14,0.2) 100%);
+    }
+
+    /* HERO CAROUSEL */
+    .hero-track {
+      display: flex;
+      height: 100vh;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .hero-track::-webkit-scrollbar { display: none; }
+    .hero-slide {
+      position: relative;
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .hero-dots {
+      position: absolute; left: 4rem; bottom: 2.5rem; z-index: 5;
+      display: flex; gap: 0.6rem;
+    }
+    .hero-dot {
+      width: 32px; height: 4px; border: none; padding: 0; border-radius: 2px;
+      background: rgba(255,255,255,0.4); cursor: pointer;
+      transition: background 0.25s, width 0.25s;
+    }
+    .hero-dot[aria-current="true"] { background: #C1AB71; width: 48px; }
+    .hero-arrows {
+      position: absolute; right: 4rem; bottom: 2.3rem; z-index: 5;
+      display: flex; gap: 0.6rem;
+    }
+    .hero-arrow {
+      width: 50px; height: 50px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.4); background: rgba(18,16,14,0.35);
+      backdrop-filter: blur(6px); color: #fff; display: grid; place-items: center;
+      cursor: pointer; transition: background 0.25s, border-color 0.25s, color 0.25s;
+    }
+    .hero-arrow:hover { background: #C1AB71; border-color: #C1AB71; color: #1a1a18; }
+    @media (max-width: 768px) {
+      .hero-dots { left: 1.5rem; bottom: 1.5rem; }
+      .hero-arrows { display: none; }
     }
 
     .hero-content {
@@ -611,12 +657,51 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <span class="hero-tag">Experienced & Reliable Remodelers since 2000</span>
-    <h1>St. Petersburg FL Tile &amp; Stone Installation Services</h1>
-    <p>Specialists in tile, flooring, and custom cabinetry &amp; carpentry for homeowners across St. Petersburg, Tampa Bay, and the Gulf Coast of Florida — plus painting, drywall, and handyman services.</p>
-    <a href="#quote" class="btn-outline">Get a Quote</a>
+  <div class="hero-track" id="heroTrack">
+
+    <!-- SLIDE 1 -->
+    <div class="hero-slide">
+      <div class="hero-bg" style="background-image:url('hero-tile-bathroom.jpg')"></div>
+      <div class="hero-content">
+        <span class="hero-tag">Experienced &amp; Reliable Remodelers since 2000</span>
+        <h1>St. Petersburg FL Tile &amp; Stone Installation Services</h1>
+        <p>Specialists in tile, flooring, and custom cabinetry &amp; carpentry for homeowners across St. Petersburg, Tampa Bay, and the Gulf Coast of Florida — plus painting, drywall, and handyman services.</p>
+        <a href="#quote" class="btn-outline">Get a Quote</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 2  — to use your own photo, replace the background-image URL below with your image filename, e.g. url('hero-slide-2.jpg') -->
+    <div class="hero-slide">
+      <div class="hero-bg" style="background-image:url('https://static.wixstatic.com/media/11062b_24e9492724454a5bb6d5876a624af07c~mv2.jpeg/v1/fit/w_1600,h_900,q_90,enc_avif,quality_auto/11062b_24e9492724454a5bb6d5876a624af07c~mv2.jpeg')"></div>
+      <div class="hero-content">
+        <span class="hero-tag">Flooring Installation</span>
+        <h1>Clearwater FL Flooring Installation Services</h1>
+        <p>Hardwood, luxury vinyl plank, tile, and laminate flooring installed for homes throughout Clearwater and the Pinellas coast — durable, beautiful results in every room.</p>
+        <a href="#quote" class="btn-outline">Get a Quote</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 3  — to use your own photo, replace the background-image URL below with your image filename, e.g. url('hero-slide-3.jpg') -->
+    <div class="hero-slide">
+      <div class="hero-bg" style="background-image:url('https://static.wixstatic.com/media/72777f4373b74abe8aa66d5a92e9fe56.jpg/v1/fit/w_1600,h_900,q_90,enc_avif,quality_auto/72777f4373b74abe8aa66d5a92e9fe56.jpg')"></div>
+      <div class="hero-content">
+        <span class="hero-tag">Cabinets &amp; Carpentry</span>
+        <h1>Tampa Bay FL Custom Cabinet and Carpentry Services</h1>
+        <p>Custom cabinetry, built-ins, trim work, and closet systems — designed and installed to fit your space across the Tampa Bay area.</p>
+        <a href="#quote" class="btn-outline">Get a Quote</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-dots" id="heroDots" role="tablist" aria-label="Choose hero slide"></div>
+  <div class="hero-arrows">
+    <button class="hero-arrow" id="heroPrev" type="button" aria-label="Previous slide">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 4l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="hero-arrow" id="heroNext" type="button" aria-label="Next slide">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
   </div>
 </section>
 
@@ -944,6 +1029,51 @@
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
+
+  /* HERO CAROUSEL */
+  (function () {
+    var track = document.getElementById('heroTrack');
+    if (!track) return;
+    var slides = [].slice.call(track.querySelectorAll('.hero-slide'));
+    var dotsWrap = document.getElementById('heroDots');
+    var prev = document.getElementById('heroPrev');
+    var next = document.getElementById('heroNext');
+    var current = 0;
+
+    slides.forEach(function (s, i) {
+      var d = document.createElement('button');
+      d.className = 'hero-dot';
+      d.type = 'button';
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      if (i === 0) d.setAttribute('aria-current', 'true');
+      d.addEventListener('click', function () { go(i); });
+      dotsWrap.appendChild(d);
+    });
+    var dots = [].slice.call(dotsWrap.children);
+
+    function go(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+    }
+    if (prev) prev.addEventListener('click', function () { go(current - 1); });
+    if (next) next.addEventListener('click', function () { go(current + 1); });
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            current = slides.indexOf(e.target);
+            dots.forEach(function (d, di) {
+              if (di === current) d.setAttribute('aria-current', 'true');
+              else d.removeAttribute('aria-current');
+            });
+          }
+        });
+      }, { root: track, threshold: 0.6 });
+      slides.forEach(function (s) { io.observe(s); });
+    }
+  })();
 </script>
 </body>
 </html>
