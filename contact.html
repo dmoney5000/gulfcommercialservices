@@ -72,6 +72,15 @@
       .form-row { grid-template-columns: 1fr; }
     }
   </style>
+  <style>
+    /* Mobile header fix: hide quote button so the phone number aligns correctly */
+    @media (max-width: 900px) {
+      #navbar { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; }
+      #navbar .nav-links { display: none !important; }
+      #navbar .btn-quote { display: none !important; }
+      #navbar .hamburger { display: flex !important; }
+    }
+  </style>
 </head>
 <body>
 <nav id="navbar">
