@@ -123,13 +123,18 @@
       <p class="section-label">Send a Message</p>
       <h2 class="section-title">Tell Us About Your Project</h2>
       <div class="form-group" style="margin-top:2rem;">
+      <form action="https://formsubmit.co/info@gulfcommercialservices.com" method="POST">
+      <input type="hidden" name="_subject" value="New website inquiry — Gulf Commercial Services"/>
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="hidden" name="_template" value="table"/>
+      <input type="text" name="_honey" style="display:none"/>
         <div class="form-row">
-          <input type="text" placeholder="First Name"/>
-          <input type="text" placeholder="Last Name"/>
+          <input type="text" name="First Name" required placeholder="First Name"/>
+          <input type="text" name="Last Name" placeholder="Last Name"/>
         </div>
-        <input type="email" placeholder="Email Address"/>
-        <input type="tel" placeholder="Phone Number"/>
-        <select>
+        <input type="email" name="email" required placeholder="Email Address"/>
+        <input type="tel" name="Phone" placeholder="Phone Number"/>
+        <select name="Service">
           <option value="" disabled selected>Select a Service</option>
           <option>Tile & Stone</option>
           <option>Flooring</option>
@@ -138,8 +143,9 @@
           <option>Drywall</option>
           <option>Handyman Services</option>
         </select>
-        <textarea placeholder="Describe your project in detail..."></textarea>
-        <button class="btn-quote" style="padding:1rem; font-size:0.85rem; width:100%;">Submit Request</button>
+        <textarea name="Message" required placeholder="Describe your project in detail..."></textarea>
+        <button type="submit" class="btn-quote" style="padding:1rem; font-size:0.85rem; width:100%;">Submit Request</button>
+      </form>
       </div>
     </div>
     <div>
