@@ -111,47 +111,70 @@
 
 <section style="background:#fff;">
   <div class="filter-bar">
-    <button class="filter-btn active">All</button>
-    <button class="filter-btn">Tile & Stone</button>
-    <button class="filter-btn">Flooring</button>
-    <button class="filter-btn">Carpentry</button>
-    <button class="filter-btn">Painting</button>
-    <button class="filter-btn">Drywall</button>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="tile">Tile &amp; Stone</button>
+    <button class="filter-btn" data-filter="flooring">Flooring</button>
+    <button class="filter-btn" data-filter="carpentry">Cabinets &amp; Carpentry</button>
   </div>
   <div class="projects-grid">
-    <div class="project-card">
-      <img loading="lazy" src="https://static.wixstatic.com/media/72777f4373b74abe8aa66d5a92e9fe56.jpg/v1/fit/w_960,h_720,q_90,enc_avif,quality_auto/72777f4373b74abe8aa66d5a92e9fe56.jpg" alt="Kitchen tile renovation project in St. Petersburg FL"/>
-      <div class="project-overlay"><div><h3>Kitchen Tile Renovation</h3><p>Tile & Stone</p></div></div>
+    <!-- TILE & STONE -->
+    <div class="project-card" data-cat="tile">
+      <img loading="lazy" src="shower-tile-installation-stpetebeach-fl.webp" alt="Walk-in shower with two-tone wood-look porcelain tile, mosaic floor and built-in bench in St. Pete Beach, FL"/>
+      <div class="project-overlay"><div><h3>Wood-Look Tile Walk-In Shower</h3><p>Tile &amp; Stone &middot; St. Pete Beach</p></div></div>
     </div>
-    <div class="project-card">
-      <img loading="lazy" src="https://static.wixstatic.com/media/11062b_873ac72460054dbfa91cd115e9b98005~mv2.jpeg/v1/fit/w_960,h_720,q_90,enc_avif,quality_auto/11062b_873ac72460054dbfa91cd115e9b98005~mv2.jpeg" alt="Hardwood floor installation in Tampa Bay home"/>
-      <div class="project-overlay"><div><h3>Hardwood Floor Install</h3><p>Flooring</p></div></div>
+    <div class="project-card" data-cat="tile">
+      <img loading="lazy" src="shower-tile-installation-treasure-island-fl.webp" alt="Walk-in shower with onyx-look porcelain tile and matte black fixtures in Treasure Island, FL"/>
+      <div class="project-overlay"><div><h3>Onyx-Look Porcelain Shower</h3><p>Tile &amp; Stone &middot; Treasure Island</p></div></div>
     </div>
-    <div class="project-card">
-      <img loading="lazy" src="https://static.wixstatic.com/media/11062b_5c1f61fc0386475b849544d9de6cb7f5~mv2.jpeg/v1/fit/w_960,h_720,q_90,enc_avif,quality_auto/11062b_5c1f61fc0386475b849544d9de6cb7f5~mv2.jpeg" alt="Custom cabinet build and carpentry in Gulf Coast home"/>
-      <div class="project-overlay"><div><h3>Custom Cabinet Build</h3><p>Carpentry</p></div></div>
+    <div class="project-card" data-cat="tile">
+      <img loading="lazy" src="backsplash-installation-treasure-island-fl.webp" alt="Gray subway tile kitchen backsplash with white cabinets in Treasure Island, FL"/>
+      <div class="project-overlay"><div><h3>Kitchen Tile Backsplash</h3><p>Tile &amp; Stone &middot; Treasure Island</p></div></div>
     </div>
-    <div class="project-card">
-      <img loading="lazy" src="https://static.wixstatic.com/media/11062b_24e9492724454a5bb6d5876a624af07c~mv2.jpeg/v1/fit/w_960,h_720,q_90,enc_avif,quality_auto/11062b_24e9492724454a5bb6d5876a624af07c~mv2.jpeg" alt="Bathroom stone tile work in St. Petersburg FL"/>
-      <div class="project-overlay"><div><h3>Bathroom Stone Work</h3><p>Tile & Stone</p></div></div>
+
+    <!-- FLOORING -->
+    <div class="project-card" data-cat="flooring">
+      <img loading="lazy" src="porcelain-tile-flooring-installation-stpetebeach-fl-1.webp" alt="Open-concept living room and kitchen with wood-look porcelain tile flooring in St. Pete Beach, FL"/>
+      <div class="project-overlay"><div><h3>Wood-Look Tile Floors</h3><p>Flooring &middot; St. Pete Beach</p></div></div>
     </div>
-    <div class="project-card">
-      <img loading="lazy" src="https://static.wixstatic.com/media/11062b_007f9179f61f4cd18608c16ef2a72b95~mv2.jpg/v1/fit/w_960,h_720,q_90,enc_avif,quality_auto/11062b_007f9179f61f4cd18608c16ef2a72b95~mv2.jpg" alt="Interior painting project on the Gulf Coast"/>
-      <div class="project-overlay"><div><h3>Interior Paint Refresh</h3><p>Painting</p></div></div>
+    <div class="project-card" data-cat="flooring">
+      <img loading="lazy" src="porcelain-tile-flooring-installation-stpetersburg-fl-4.webp" alt="Wood-look porcelain tile flooring in a two-story great room with staircase in St. Petersburg, FL"/>
+      <div class="project-overlay"><div><h3>Great Room Tile Flooring</h3><p>Flooring &middot; St. Petersburg</p></div></div>
     </div>
-    <div class="project-card">
-      <img loading="lazy" src="https://static.wixstatic.com/media/11062b_167ef4c3ef044679b96bc8e3958c236a~mv2.jpg/v1/fit/w_960,h_720,q_90,enc_avif,quality_auto/11062b_167ef4c3ef044679b96bc8e3958c236a~mv2.jpg" alt="Drywall installation and finish work in Tampa FL"/>
-      <div class="project-overlay"><div><h3>Drywall & Finish</h3><p>Drywall</p></div></div>
+    <div class="project-card" data-cat="flooring">
+      <img loading="lazy" src="porcelain-tile-flooring-installation-stpetersburg-fl-1.webp" alt="Wood-look porcelain tile flooring in an open living room with sliding glass doors and water view in St. Petersburg, FL"/>
+      <div class="project-overlay"><div><h3>Waterfront Living Room Floors</h3><p>Flooring &middot; St. Petersburg</p></div></div>
     </div>
-    <div class="project-card">
-      <img loading="lazy" src="https://static.wixstatic.com/media/11062b_4744eb9050974574b502daca0c6c3a08~mv2.jpg/v1/fit/w_960,h_720,q_90,enc_avif,quality_auto/11062b_4744eb9050974574b502daca0c6c3a08~mv2.jpg" alt="Luxury vinyl plank flooring installation in St. Petersburg"/>
-      <div class="project-overlay"><div><h3>Luxury Vinyl Plank</h3><p>Flooring</p></div></div>
+    <div class="project-card" data-cat="flooring">
+      <img loading="lazy" src="porcelain-tile-flooring-installation-north_redington_beach-fl-3.webp" alt="Porcelain tile flooring in a living room with vaulted ceiling and French doors in North Redington Beach, FL"/>
+      <div class="project-overlay"><div><h3>Vaulted Living Room Floors</h3><p>Flooring &middot; North Redington Beach</p></div></div>
     </div>
-    <div class="project-card">
-      <img loading="lazy" src="https://static.wixstatic.com/media/feb654e11d3a49daa79c16b483bee805.jpg/v1/fit/w_960,h_720,q_90,enc_avif,quality_auto/feb654e11d3a49daa79c16b483bee805.jpg" alt="Custom closet system installation in Gulf Coast home"/>
-      <div class="project-overlay"><div><h3>Closet System Install</h3><p>Carpentry</p></div></div>
+    <div class="project-card" data-cat="flooring">
+      <img loading="lazy" src="porcelain-tile-flooring-installation-north_redington_beach-fl-1.webp" alt="Gray wood-look porcelain tile flooring in an open kitchen with island in North Redington Beach, FL"/>
+      <div class="project-overlay"><div><h3>Open Kitchen Tile Floors</h3><p>Flooring &middot; North Redington Beach</p></div></div>
     </div>
-    <div class="project-card" style="background:var(--navy); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem; text-align:center; padding:2rem;">
+    <div class="project-card" data-cat="flooring">
+      <img loading="lazy" src="LVP-flooring-installation-stpetebeach-fl-1.webp" alt="Luxury vinyl plank (LVP) flooring in a living room with fireplace in St. Pete Beach, FL"/>
+      <div class="project-overlay"><div><h3>Luxury Vinyl Plank Flooring</h3><p>Flooring &middot; St. Pete Beach</p></div></div>
+    </div>
+
+    <!-- CABINETS & CARPENTRY -->
+    <div class="project-card" data-cat="carpentry">
+      <img loading="lazy" src="cabinet-installation-stpetersburg-fl.webp" alt="Custom white shaker kitchen cabinets with granite countertops and stainless appliances in St. Petersburg, FL"/>
+      <div class="project-overlay"><div><h3>White Shaker Kitchen Cabinets</h3><p>Cabinets &amp; Carpentry &middot; St. Petersburg</p></div></div>
+    </div>
+    <div class="project-card" data-cat="carpentry">
+      <img loading="lazy" src="cabinet-_-backsplash-installation-clearwaterbeach-fl.jpg" alt="Light blue and white shaker kitchen cabinets with marble-look backsplash and island in Clearwater Beach, FL"/>
+      <div class="project-overlay"><div><h3>Coastal Kitchen Cabinets &amp; Backsplash</h3><p>Cabinets &amp; Carpentry &middot; Clearwater Beach</p></div></div>
+    </div>
+    <div class="project-card" data-cat="carpentry">
+      <img loading="lazy" src="custom-closet-installation-clearwaterbeach-fl.jpg" alt="Custom white walk-in closet system with shelving and drawers in Clearwater Beach, FL"/>
+      <div class="project-overlay"><div><h3>Custom Walk-In Closet</h3><p>Cabinets &amp; Carpentry &middot; Clearwater Beach</p></div></div>
+    </div>
+    <div class="project-card" data-cat="carpentry">
+      <img loading="lazy" src="sauna-installation-seminole-fl.jpg" alt="Outdoor cedar barrel sauna installation on a paver patio in Seminole, FL"/>
+      <div class="project-overlay"><div><h3>Cedar Barrel Sauna</h3><p>Cabinets &amp; Carpentry &middot; Seminole</p></div></div>
+    </div>
+    <div class="project-card" data-cat="cta" style="background:var(--navy); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem; text-align:center; padding:2rem;">
       <p style="color:#C1AB71; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase;">Your Project Here</p>
       <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:#fff; font-weight:300;">Ready to Start?</h3>
       <a href="contact.html" class="btn-quote">Get a Quote</a>
@@ -212,6 +235,11 @@
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.projects-grid .project-card').forEach(card => {
+        const cat = card.dataset.cat;
+        card.style.display = (f === 'all' || cat === 'cta' || cat === f) ? '' : 'none';
+      });
     });
   });
 </script>
