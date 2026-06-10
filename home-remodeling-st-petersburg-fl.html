@@ -115,6 +115,12 @@
     .footer-bottom{ background:#0d1a30; color:rgba(255,255,255,0.5); padding:1.3rem 4rem; display:flex; justify-content:space-between; font-size:0.8rem; }
     .footer-bottom a{ color:rgba(255,255,255,0.5); text-decoration:none; margin-left:1.5rem; }
     @media (max-width:900px){ .svc-grid,.why-grid{ grid-template-columns:1fr; } footer{ grid-template-columns:1fr 1fr; } }
+    /* Intro two-column (text + photo) */
+    .loc-intro{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:3.5rem; align-items:center; max-width:1100px; margin:0 auto; }
+    .loc-intro .lead{ max-width:none; }
+    .loc-intro-img{ overflow:hidden; }
+    .loc-intro-img img{ width:100%; height:100%; max-height:480px; object-fit:cover; }
+    @media (max-width:900px){ .loc-intro{ grid-template-columns:1fr; gap:2.2rem; } }
     @media (max-width:768px){
       nav{ padding:1.1rem 1.5rem; } .nav-links, nav .btn-quote{ display:none; } .hamburger{ display:flex; }
       section,.page-hero{ padding-left:1.5rem; padding-right:1.5rem; } .page-hero h1{ font-size:2.2rem; }
@@ -159,11 +165,16 @@
 </div>
 
 <section style="background:#fff;">
-  <div style="max-width:760px; margin:0 auto;">
-    <p class="section-label">Local Remodelers</p>
-    <h2 class="section-title">Trusted remodeling for St. Petersburg homes</h2>
-    <p class="lead" style="margin-top:1.2rem;">St. Pete's housing is full of character, from the 1920s craftsman bungalows of Historic Kenwood and the brick streets of the Old Northeast to the Mediterranean Revival homes on Snell Isle and modern condos downtown. Each of these calls for a different approach, and we tailor every tile layout, floor, and cabinet run to the home in front of us.</p>
-    <p class="lead">As your neighbors here in St. Petersburg, we know the local housing stock and the local climate. We steer clients toward materials that hold up in the heat and humidity &mdash; porcelain tile and luxury vinyl plank that resist moisture &mdash; and we handle permitting through the City of St. Petersburg and Pinellas County so you don't have to.</p>
+  <div class="loc-intro">
+    <div>
+      <p class="section-label">Local Remodelers</p>
+      <h2 class="section-title">Trusted remodeling for St. Petersburg homes</h2>
+      <p class="lead" style="margin-top:1.2rem;">St. Pete's housing is full of character, from the 1920s craftsman bungalows of Historic Kenwood and the brick streets of the Old Northeast to the Mediterranean Revival homes on Snell Isle and modern condos downtown. Each of these calls for a different approach, and we tailor every tile layout, floor, and cabinet run to the home in front of us.</p>
+      <p class="lead">As your neighbors here in St. Petersburg, we know the local housing stock and the local climate. We steer clients toward materials that hold up in the heat and humidity &mdash; porcelain tile and luxury vinyl plank that resist moisture &mdash; and we handle permitting through the City of St. Petersburg and Pinellas County so you don't have to.</p>
+    </div>
+    <div class="loc-intro-img">
+      <img loading="lazy" src="porcelain-tile-flooring-installation-stpetersburg-fl-4.webp" alt="Open-concept living area with light wood-look porcelain tile flooring, a staircase and waterfront kitchen in St. Petersburg, FL"/>
+    </div>
   </div>
 </section>
 
