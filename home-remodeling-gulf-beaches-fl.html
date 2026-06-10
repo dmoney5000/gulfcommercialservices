@@ -115,6 +115,12 @@
     .footer-bottom{ background:#0d1a30; color:rgba(255,255,255,0.5); padding:1.3rem 4rem; display:flex; justify-content:space-between; font-size:0.8rem; }
     .footer-bottom a{ color:rgba(255,255,255,0.5); text-decoration:none; margin-left:1.5rem; }
     @media (max-width:900px){ .svc-grid,.why-grid{ grid-template-columns:1fr; } footer{ grid-template-columns:1fr 1fr; } }
+    /* Intro two-column (text + photo) */
+    .loc-intro{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:3.5rem; align-items:center; max-width:1100px; margin:0 auto; }
+    .loc-intro .lead{ max-width:none; }
+    .loc-intro-img{ overflow:hidden; }
+    .loc-intro-img img{ width:100%; height:100%; max-height:480px; object-fit:cover; }
+    @media (max-width:900px){ .loc-intro{ grid-template-columns:1fr; gap:2.2rem; } }
     @media (max-width:768px){
       nav{ padding:1.1rem 1.5rem; } .nav-links, nav .btn-quote{ display:none; } .hamburger{ display:flex; }
       section,.page-hero{ padding-left:1.5rem; padding-right:1.5rem; } .page-hero h1{ font-size:2.2rem; }
@@ -159,11 +165,16 @@
 </div>
 
 <section style="background:#fff;">
-  <div style="max-width:760px; margin:0 auto;">
-    <p class="section-label">Local Remodelers</p>
-    <h2 class="section-title">Trusted remodeling for Gulf Beaches homes</h2>
-    <p class="lead" style="margin-top:1.2rem;">The Gulf Beaches &mdash; St. Pete Beach, Treasure Island, Madeira Beach, Indian Rocks Beach and the rest of the barrier islands &mdash; are full of beach homes, waterfront condos, and vacation rentals. These properties face the harshest conditions in the area, with constant salt air, sun, and moisture, so the right materials and detailing matter more here than almost anywhere.</p>
-    <p class="lead">For beach properties we specify porcelain tile and waterproof luxury vinyl plank, corrosion-resistant hardware, and careful moisture protection throughout. We're also experienced with the realities of island work &mdash; condo and HOA coordination, limited access, and the tight turnaround windows that vacation-rental owners need between bookings.</p>
+  <div class="loc-intro">
+    <div>
+      <p class="section-label">Local Remodelers</p>
+      <h2 class="section-title">Trusted remodeling for Gulf Beaches homes</h2>
+      <p class="lead" style="margin-top:1.2rem;">The Gulf Beaches &mdash; St. Pete Beach, Treasure Island, Madeira Beach, Indian Rocks Beach and the rest of the barrier islands &mdash; are full of beach homes, waterfront condos, and vacation rentals. These properties face the harshest conditions in the area, with constant salt air, sun, and moisture, so the right materials and detailing matter more here than almost anywhere.</p>
+      <p class="lead">For beach properties we specify porcelain tile and waterproof luxury vinyl plank, corrosion-resistant hardware, and careful moisture protection throughout. We're also experienced with the realities of island work &mdash; condo and HOA coordination, limited access, and the tight turnaround windows that vacation-rental owners need between bookings.</p>
+    </div>
+    <div class="loc-intro-img">
+      <img loading="lazy" src="shower-tile-installation-stpetebeach-fl-3.webp" alt="Remodeled beach-home bathroom with wood-look porcelain tile walk-in shower, double vanity with quartz top and dark wood cabinetry in St. Pete Beach, FL"/>
+    </div>
   </div>
 </section>
 
