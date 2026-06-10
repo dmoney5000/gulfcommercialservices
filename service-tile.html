@@ -73,6 +73,16 @@
     .why-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
     .why-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
     @media (max-width:900px) { .service-detail { grid-template-columns:1fr; } .why-grid { grid-template-columns:1fr; } }
+    .tile-gallery { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    .gallery-card { position: relative; overflow: hidden; height: 300px; }
+    .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display:block; }
+    .gallery-card:hover img { transform: scale(1.06); }
+    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,35,65,0.85) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 1.5rem; }
+    .gallery-card:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #fff; font-weight: 400; }
+    .gallery-overlay p { font-size: 0.75rem; color: #C1AB71; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
+    @media (max-width:900px) { .tile-gallery { grid-template-columns: 1fr 1fr; } }
+    @media (max-width:600px) { .tile-gallery { grid-template-columns: 1fr; } }
   </style>
   <style>
     /* Mobile header fix: hide quote button so the phone number aligns correctly */
@@ -135,14 +145,30 @@
       </ul>
       <a href="contact.html" class="btn-quote" style="margin-top:2rem;">Request a Free Quote</a>
     </div>
-    <div style="background:var(--light-warm); padding:3rem; display:flex; align-items:center; justify-content:center; min-height:400px;">
-      <div style="text-align:center;">
-        <svg viewBox="0 0 100 100" fill="none" stroke="#C1AB71" stroke-width="1.5" width="120" height="120" style="margin-bottom:1.5rem;">
-          <rect x="10" y="10" width="35" height="35"/><rect x="55" y="10" width="35" height="35"/>
-          <rect x="10" y="55" width="35" height="35"/><rect x="55" y="55" width="35" height="35"/>
-        </svg>
-        <p style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--dark);">Upload your project photos<br/>or contact us to get started</p>
-      </div>
+    <div style="overflow:hidden; min-height:400px; height:100%;">
+      <img loading="lazy" src="backsplash-installation-annamariaisland-fl-2.jpg" alt="Blue picket tile kitchen backsplash with white shaker cabinets, quartz counters and a custom range hood in Anna Maria Island, FL" style="width:100%; height:100%; min-height:400px; object-fit:cover; display:block;"/>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;">
+  <div style="text-align:center; max-width:600px; margin:0 auto;">
+    <p class="section-label">Recent Work</p>
+    <h2 class="section-title">Tile &amp; Stone Projects on the Gulf Coast</h2>
+    <p class="section-sub">A few recent shower and bathroom tile installations from across St. Petersburg, the Gulf Beaches, and Sarasota.</p>
+  </div>
+  <div class="tile-gallery">
+    <div class="gallery-card">
+      <img loading="lazy" src="shower-tile-installation-treasure-island-fl.webp" alt="Walk-in shower with onyx-look porcelain tile and matte black fixtures in Treasure Island, FL"/>
+      <div class="gallery-overlay"><div><h4>Onyx-Look Porcelain Shower</h4><p>Tile &amp; Stone &middot; Treasure Island</p></div></div>
+    </div>
+    <div class="gallery-card">
+      <img loading="lazy" src="shower-tile-installation-stpetebeach-fl.webp" alt="Walk-in shower with two-tone wood-look porcelain tile, mosaic floor and built-in bench in St. Pete Beach, FL"/>
+      <div class="gallery-overlay"><div><h4>Wood-Look Tile Walk-In Shower</h4><p>Tile &amp; Stone &middot; St. Pete Beach</p></div></div>
+    </div>
+    <div class="gallery-card">
+      <img loading="lazy" src="shower-tile-installation-sarasota-fl.jpg" alt="Walk-in shower with large-format gray porcelain tile, mosaic floor and glass panel in Sarasota, FL"/>
+      <div class="gallery-overlay"><div><h4>Large-Format Tile Shower</h4><p>Tile &amp; Stone &middot; Sarasota</p></div></div>
     </div>
   </div>
 </section>
